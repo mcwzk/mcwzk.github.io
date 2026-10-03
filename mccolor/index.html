@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 站点地址：https://mccolor.ylg.net.cn/ 　如果以后换域名，
+     index.html / sitemap.xml / robots.txt / llms.txt 四个文件里都要一起改 -->
+
+    <title>我的世界渐变颜色生成器 - MC 名字/前缀/称号渐变色在线制作</title>
+    <meta name="description" content="免费的我的世界渐变颜色生成器，输入文字即可生成 MC 渐变名字、聊天、前缀、称号和物品名。支持 MiniMessage、§x 十六进制、&amp;#RRGGBB、tellraw、LuckPerms 前缀等 40 种格式，1.16+ Java 版与基岩版通用，实时预览，一键复制。">
+    <meta name="keywords" content="我的世界渐变颜色生成器,MC渐变色,minecraft渐变名字,我的世界颜色代码,MC前缀渐变,MiniMessage渐变,§x十六进制颜色,LuckPerms渐变前缀,我的世界称号生成,minecraft gradient generator">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+    <meta name="author" content="Minecraft Gradient Generator">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#1f9d47">
+
+    <link rel="canonical" href="https://mccolor.ylg.net.cn/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://mccolor.ylg.net.cn/">
+    <link rel="alternate" hreflang="en" href="https://mccolor.ylg.net.cn/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://mccolor.ylg.net.cn/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="我的世界渐变颜色生成器">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="我的世界渐变颜色生成器 - MC 名字/前缀/称号渐变色在线制作">
+    <meta property="og:description" content="输入文字即可生成 MC 渐变名字、聊天、前缀和物品名。支持 MiniMessage、§x 十六进制、&amp;#RRGGBB、tellraw、LuckPerms 等 40 种格式，实时预览一键复制。">
+    <meta property="og:url" content="https://mccolor.ylg.net.cn/">
+    <meta property="og:image" content="https://mccolor.ylg.net.cn/og-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="我的世界渐变颜色生成器">
+    <meta name="twitter:description" content="MC 渐变名字、前缀、称号、物品名一键生成，40 种格式全覆盖。">
+    <meta name="twitter:image" content="https://mccolor.ylg.net.cn/og-cover.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%2300AA00'/><rect x='2' y='2' width='12' height='12' fill='%23FFAA00'/><rect x='5' y='5' width='6' height='6' fill='%235555FF'/></svg>">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                    "@type": "WebApplication",
+                    "@id": "https://mccolor.ylg.net.cn/#app",
+                    "name": "我的世界渐变颜色生成器",
+                    "alternateName": "Minecraft Gradient Generator",
+                    "url": "https://mccolor.ylg.net.cn/",
+                    "applicationCategory": "DesignApplication",
+                    "operatingSystem": "任意（浏览器内运行）",
+                    "browserRequirements": "支持 ES2015 的现代浏览器",
+                    "inLanguage": ["zh-CN", "en"],
+                    "description": "在线生成 Minecraft 渐变颜色文字，支持 MiniMessage、§x 十六进制、&#RRGGBB、tellraw、物品名、LuckPerms 前缀等 40 种输出格式，全部计算在浏览器本地完成。",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "CNY"
+                    },
+                    "featureList": [
+                        "OKLab 感知均匀渐变插值",
+                        "40 种 Minecraft 文本格式输出",
+                        "逐字单独指定颜色与样式",
+                        "Minecraft 文字阴影实时预览",
+                        "74 个内置渐变预设",
+                        "中英双语界面"
+                    ]
+                },
+                {
+                    "@type": "FAQPage",
+                    "@id": "https://mccolor.ylg.net.cn/#faq",
+                    "mainEntity": [{
+                            "@type": "Question",
+                            "name": "我的世界从哪个版本开始支持渐变颜色？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Java 版从 1.16 开始支持十六进制（Hex）颜色，写法是 §x 后面跟 6 个 §加十六进制位，例如 §x§f§f§0§0§0§0 表示纯红。1.15 及以下、以及基岩版都只有 16 种固定颜色，只能用最接近的原版颜色近似模拟渐变。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "为什么我复制的 §x 代码在服务器里显示成乱码？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "常见有三个原因：一是服务端版本低于 1.16，不认识十六进制颜色；二是配置文件里应该用 &#RRGGBB 而不是 §x，多数插件只解析 & 开头的写法；三是文件编码不是 UTF-8，§ 符号被破坏了，把文件另存为 UTF-8 即可。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "MiniMessage 和 &#RRGGBB 有什么区别，该用哪个？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "MiniMessage 是 Paper 服务端和 Adventure 库使用的现代标记语言，写法像 <#FF0000>文字，还支持 <gradient> 等高级标签。&#RRGGBB 是 BungeeCord 风格的写法，Essentials、LuckPerms、TAB 等绝大多数插件的配置文件都认它。如果你的插件文档里出现过 MiniMessage 字样就用前者，否则用后者最保险。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "聊天栏 256 字符不够用怎么办？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "每个字符加一次 §x 颜色码要占 14 个字符，很容易超限。三个办法：把空格设为不着色；把「每 N 个字符换色」调成 2 到 3，视觉几乎无差别但长度减半；用颜色数量化把渐变压成十几种颜色，相邻同色会自动合并。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "基岩版（手机版）能用渐变颜色吗？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "基岩版不支持自定义十六进制颜色，只有 16 种基础颜色加上 g、h、i、j、m、n、p、q、s、t、u 这些材质色。本工具会用 OKLab 色彩距离为每个字符找到最接近的原版颜色，生成的 § 代码可以直接在基岩版使用，能做出近似的渐变效果。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "怎么给 LuckPerms 的前缀加渐变色？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "在生成结果里切到「前缀 / 称号 / 插件」分类，填上玩家名或权限组名，复制 LuckPerms 那条命令直接在控制台执行即可，例如 /lp group vip meta addprefix 100 \"&#FF0000渐&#FFAA00变\"。要让前缀显示出来，服务器还需要安装 Vault 和支持前缀的聊天插件。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "为什么我生成的物品名是斜体的？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "这是 Minecraft 的默认行为，所有自定义物品名都会带斜体。本工具生成的物品名命令已经自动加了 \"italic\": false 来关掉它，直接复制使用即可。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "这个渐变颜色生成器需要付费或登录吗？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "完全免费，不需要注册登录。所有颜色计算都在你的浏览器本地完成，输入的文字不会上传到任何服务器。"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "HowTo",
+                    "@id": "https://mccolor.ylg.net.cn/#howto",
+                    "name": "如何制作我的世界渐变颜色名字",
+                    "totalTime": "PT1M",
+                    "step": [{
+                            "@type": "HowToStep",
+                            "position": 1,
+                            "name": "输入文字",
+                            "text": "在左侧「文本内容」里输入想要显示的名字或句子。"
+                        },
+                        {
+                            "@type": "HowToStep",
+                            "position": 2,
+                            "name": "调整渐变",
+                            "text": "在渐变编辑器里拖动色标改变颜色，或直接从 74 个预设里挑一个。"
+                        },
+                        {
+                            "@type": "HowToStep",
+                            "position": 3,
+                            "name": "选择格式",
+                            "text": "在生成结果里切到对应分类，找到你的服务端或插件需要的格式。"
+                        },
+                        {
+                            "@type": "HowToStep",
+                            "position": 4,
+                            "name": "复制使用",
+                            "text": "点复制按钮，粘贴到游戏、命令方块或插件配置文件里。"
+                        }
+                    ]
+                }
+            ]
+        }
+    </script>
+
+    <!-- 访问统计（自建 Umami，无 Cookie、不采集个人信息） -->
+    <script defer src="https://stats.ylg.net.cn/script.js" data-website-id="b46b08f1-6a11-49db-883c-ef56f985b887"></script>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-cube" aria-hidden="true"></span>
+            <div>
+                <h1 data-i18n="app.title">我的世界渐变颜色生成器</h1>
+                <p class="brand-sub" data-i18n="app.subtitle">Hex 渐变 · 全格式输出 · 实时预览</p>
+            </div>
+        </div>
+        <div class="topbar-actions">
+            <button class="btn btn-ghost" id="btnUndo" title="Ctrl+Z" data-i18n-title="tip.undo"><span class="ico">↺</span><span data-i18n="btn.undo">撤销</span></button>
+            <button class="btn btn-ghost" id="btnRedo" title="Ctrl+Y" data-i18n-title="tip.redo"><span class="ico">↻</span><span data-i18n="btn.redo">重做</span></button>
+            <button class="btn btn-ghost" id="btnShare"><span class="ico">🔗</span><span data-i18n="btn.share">分享链接</span></button>
+            <button class="btn btn-ghost" id="btnHelp"><span class="ico">?</span></button>
+            <button class="btn btn-ghost" id="btnLang">EN</button>
+            <button class="btn btn-ghost" id="btnTheme"><span class="ico" id="themeIco">☀</span></button>
+        </div>
+    </header>
+
+    <main class="layout">
+
+        <!-- ============ 左列 ============ -->
+        <div class="col col-left">
+
+            <!-- 文本输入 -->
+            <section class="panel">
+                <h2 class="panel-title"><span class="ico">✎</span><span data-i18n="sec.text">文本内容</span></h2>
+                <div class="panel-body">
+                    <textarea id="inputText" class="text-input" rows="3" spellcheck="false" placeholder="Hello Minecraft">Hello Minecraft</textarea>
+
+                    <div class="row row-wrap gap-s">
+                        <div class="style-toolbar" role="group">
+                            <button class="sbtn" data-style="bold" title="§l"><b>B</b></button>
+                            <button class="sbtn" data-style="italic" title="§o"><i>I</i></button>
+                            <button class="sbtn" data-style="underline" title="§n"><u>U</u></button>
+                            <button class="sbtn" data-style="strike" title="§m"><s>S</s></button>
+                            <button class="sbtn" data-style="obf" title="§k"><span class="obf-ico">K</span></button>
+                        </div>
+                        <button class="btn btn-mini" id="btnClearStyles" data-i18n="btn.clearStyles">清除样式</button>
+                        <span class="hint" data-i18n="hint.styleSel">选中部分文字可只对选区应用样式</span>
+                    </div>
+
+                    <div class="stats" id="stats"></div>
+                    <div class="warnbox" id="limitWarn" hidden></div>
+
+                    <details class="sub" id="charEditorBox">
+                        <summary data-i18n="sec.charEdit">逐字精修（单独指定颜色和样式）</summary>
+                        <div style="padding:4px 12px 13px; display:flex; flex-direction:column; gap:9px;">
+                            <p class="hint" data-i18n="hint.charEdit">点一个字选中它；按住 Shift 选一段；按住 Ctrl 加选。底部有黄条的表示这个字被单独指定了颜色。</p>
+                            <div class="char-grid" id="charGrid"></div>
+                            <div class="char-bar">
+                                <span class="sel-info" id="charSelInfo"></span>
+                                <button type="button" class="sw-btn" id="charColor" style="background:#FFFFFF" title="#FFFFFF"></button>
+                                <button class="btn btn-mini" id="btnCharColor" data-i18n="btn.charColor">设为此色</button>
+                                <button class="btn btn-mini" id="btnCharClear" data-i18n="btn.charClear">恢复渐变色</button>
+                                <div class="style-toolbar" role="group">
+                                    <button class="sbtn" data-cstyle="bold" title="§l"><b>B</b></button>
+                                    <button class="sbtn" data-cstyle="italic" title="§o"><i>I</i></button>
+                                    <button class="sbtn" data-cstyle="underline" title="§n"><u>U</u></button>
+                                    <button class="sbtn" data-cstyle="strike" title="§m"><s>S</s></button>
+                                    <button class="sbtn" data-cstyle="obf" title="§k">K</button>
+                                </div>
+                                <button class="btn btn-mini" id="btnCharAll" data-i18n="btn.charAll">全选</button>
+                                <button class="btn btn-mini" id="btnCharNone" data-i18n="btn.charNone">取消选择</button>
+                                <button class="btn btn-mini" id="btnCharResetAll" data-i18n="btn.charResetAll">清空所有单独设置</button>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 渐变编辑 -->
+            <section class="panel">
+                <h2 class="panel-title"><span class="ico">🎨</span><span data-i18n="sec.gradient">渐变编辑器</span></h2>
+                <div class="panel-body">
+
+                    <div class="gbar-wrap">
+                        <div class="gbar" id="gbar" tabindex="0">
+                            <div class="gbar-fill" id="gbarFill"></div>
+                            <div class="gbar-stops" id="gbarStops"></div>
+                        </div>
+                        <p class="hint" data-i18n="hint.gbar">双击色条添加色标 · 拖动调整位置 · 右键删除 · 选中后按 ←/→ 微调</p>
+                    </div>
+
+                    <div class="stop-list" id="stopList"></div>
+
+                    <div class="row row-wrap gap-s">
+                        <button class="btn btn-mini" id="btnAddStop">+ <span data-i18n="btn.addStop">添加色标</span></button>
+                        <button class="btn btn-mini" id="btnDistribute" data-i18n="btn.distribute">均匀分布</button>
+                        <button class="btn btn-mini" id="btnReverse" data-i18n="btn.reverse">反转</button>
+                        <button class="btn btn-mini" id="btnRandom" data-i18n="btn.random">随机渐变</button>
+                        <button class="btn btn-mini" id="btnEyedrop" hidden data-i18n="btn.eyedrop">屏幕吸管</button>
+                        <label class="btn btn-mini" for="imgPick" data-i18n="btn.fromImage">从图片取色</label>
+                        <input type="file" id="imgPick" accept="image/*" hidden>
+                    </div>
+
+                    <details class="sub" open>
+                        <summary data-i18n="sec.interp">插值与曲线</summary>
+                        <div class="grid2">
+                            <label class="field">
+                                <span data-i18n="lbl.space">色彩空间</span>
+                                <select id="selSpace">
+                                    <option value="oklab" data-i18n="space.oklab">OKLab（感知均匀 · 推荐）</option>
+                                    <option value="lab" data-i18n="space.lab">CIE Lab</option>
+                                    <option value="rgb" data-i18n="space.rgb">RGB 线性混合</option>
+                                    <option value="srgb-linear" data-i18n="space.srgbLinear">sRGB 物理线性</option>
+                                    <option value="hsl" data-i18n="space.hsl">HSL</option>
+                                    <option value="hsv" data-i18n="space.hsv">HSV</option>
+                                    <option value="catmull" data-i18n="space.catmull">Catmull-Rom 样条</option>
+                                </select>
+                            </label>
+                            <label class="field" id="fieldHue">
+                                <span data-i18n="lbl.hueDir">色相绕行</span>
+                                <select id="selHue">
+                                    <option value="short" data-i18n="hue.short">最短路径</option>
+                                    <option value="long" data-i18n="hue.long">最长路径</option>
+                                    <option value="cw" data-i18n="hue.cw">顺时针</option>
+                                    <option value="ccw" data-i18n="hue.ccw">逆时针</option>
+                                </select>
+                            </label>
+                            <label class="field">
+                                <span data-i18n="lbl.easing">缓动曲线</span>
+                                <select id="selEasing">
+                                    <option value="linear" data-i18n="ease.linear">线性</option>
+                                    <option value="in" data-i18n="ease.in">缓入</option>
+                                    <option value="out" data-i18n="ease.out">缓出</option>
+                                    <option value="inout" data-i18n="ease.inout">缓入缓出</option>
+                                    <option value="expo" data-i18n="ease.expo">指数</option>
+                                    <option value="sine" data-i18n="ease.sine">正弦</option>
+                                    <option value="step" data-i18n="ease.step">阶梯（硬边）</option>
+                                </select>
+                            </label>
+                            <label class="field">
+                                <span data-i18n="lbl.loop">循环模式</span>
+                                <select id="selLoop">
+                                    <option value="once" data-i18n="loop.once">单程</option>
+                                    <option value="bounce" data-i18n="loop.bounce">往返</option>
+                                    <option value="repeat" data-i18n="loop.repeat">重复</option>
+                                </select>
+                            </label>
+                            <label class="field" id="fieldRepeat">
+                                <span data-i18n="lbl.repeats">循环次数</span>
+                                <input type="number" id="numRepeats" min="1" max="20" step="1" value="2">
+                            </label>
+                            <label class="field">
+                                <span><span data-i18n="lbl.offset">相位偏移</span> <b id="valOffset" class="mono">0%</b></span>
+                                <input type="range" id="rngOffset" min="-100" max="100" step="1" value="0">
+                            </label>
+                        </div>
+                    </details>
+
+                    <details class="sub">
+                        <summary data-i18n="sec.granularity">上色粒度与多行</summary>
+                        <div class="grid2">
+                            <label class="field">
+                                <span data-i18n="lbl.unit">上色单位</span>
+                                <select id="selUnit">
+                                    <option value="char" data-i18n="unit.char">逐字符</option>
+                                    <option value="word" data-i18n="unit.word">逐单词</option>
+                                </select>
+                            </label>
+                            <label class="field" id="fieldGran">
+                                <span data-i18n="lbl.gran">每 N 个字符换色</span>
+                                <input type="number" id="numGran" min="1" max="20" step="1" value="1">
+                            </label>
+                            <label class="field">
+                                <span data-i18n="lbl.multiline">多行处理</span>
+                                <select id="selLines">
+                                    <option value="continuous" data-i18n="lines.continuous">全文连续渐变</option>
+                                    <option value="perline" data-i18n="lines.perline">每行独立渐变</option>
+                                    <option value="shift" data-i18n="lines.shift">每行递进偏移</option>
+                                </select>
+                            </label>
+                            <label class="field" id="fieldLineShift">
+                                <span><span data-i18n="lbl.lineShift">每行偏移</span> <b id="valLineShift" class="mono">20%</b></span>
+                                <input type="range" id="rngLineShift" min="0" max="100" step="1" value="20">
+                            </label>
+                            <label class="check"><input type="checkbox" id="chkSkipSpaces" checked><span data-i18n="lbl.skipSpaces">空格不着色（省字符）</span></label>
+                            <label class="check"><input type="checkbox" id="chkCompress" checked><span data-i18n="lbl.compress">合并相邻同色（压缩）</span></label>
+                            <label class="field">
+                                <span><span data-i18n="lbl.quantize">颜色数量化</span> <b id="valQuant" class="mono">关</b></span>
+                                <input type="range" id="rngQuant" min="0" max="32" step="1" value="0">
+                            </label>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 预设 -->
+            <section class="panel">
+                <h2 class="panel-title"><span class="ico">★</span><span data-i18n="sec.presets">预设渐变</span></h2>
+                <div class="panel-body">
+                    <div class="tabs" id="presetTabs"></div>
+                    <div class="preset-grid" id="presetGrid"></div>
+                    <div class="row row-wrap gap-s">
+                        <button class="btn btn-mini" id="btnSavePreset" data-i18n="btn.savePreset">保存当前为预设</button>
+                        <button class="btn btn-mini" id="btnExport" data-i18n="btn.export">导出 JSON</button>
+                        <label class="btn btn-mini" for="importFile" data-i18n="btn.import">导入 JSON</label>
+                        <input type="file" id="importFile" accept="application/json,.json" hidden>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ 右列 ============ -->
+        <div class="col col-right">
+
+            <!-- 预览 -->
+            <section class="panel">
+                <h2 class="panel-title"><span class="ico">👁</span><span data-i18n="sec.preview">实时预览</span></h2>
+                <div class="panel-body">
+                    <div class="row row-wrap gap-s preview-ctl">
+                        <label class="field field-inline">
+                            <span data-i18n="lbl.bg">背景</span>
+                            <select id="selBg">
+                                <option value="chat" data-i18n="bg.chat">聊天框</option>
+                                <option value="grass" data-i18n="bg.grass">草地</option>
+                                <option value="stone" data-i18n="bg.stone">石头</option>
+                                <option value="obsidian" data-i18n="bg.obsidian">黑曜石</option>
+                                <option value="sand" data-i18n="bg.sand">沙漠</option>
+                                <option value="nether" data-i18n="bg.nether">下界</option>
+                                <option value="white" data-i18n="bg.white">纯白</option>
+                                <option value="image" data-i18n="bg.image">自定义图片</option>
+                                <option value="custom" data-i18n="bg.custom">自定义颜色</option>
+                            </select>
+                        </label>
+                        <button type="button" class="sw-btn sw-mini" id="bgColor" style="background:#2B2B2B" title="#2B2B2B" hidden></button>
+                        <label class="btn btn-mini" for="bgImage" id="bgImageBtn" hidden data-i18n="btn.uploadBg">上传背景图</label>
+                        <button class="btn btn-mini" id="btnBgClear" hidden data-i18n="btn.clearBg">移除背景图</button>
+                        <input type="file" id="bgImage" accept="image/*" hidden>
+                        <label class="field field-inline">
+                            <span data-i18n="lbl.scale">字号</span>
+                            <input type="range" id="rngScale" min="12" max="52" step="1" value="26">
+                        </label>
+                        <label class="check"><input type="checkbox" id="chkShadow" checked><span data-i18n="lbl.shadow">文字阴影</span></label>
+                        <label class="check"><input type="checkbox" id="chkAnimObf" checked><span data-i18n="lbl.animObf">§k 动画</span></label>
+                    </div>
+                    <div class="preview" id="preview" data-bg="chat">
+                        <div class="preview-inner" id="previewInner"></div>
+                    </div>
+                    <div class="contrast" id="contrast"></div>
+                </div>
+            </section>
+
+            <!-- 输出 -->
+            <section class="panel">
+                <h2 class="panel-title"><span class="ico">⌨</span><span data-i18n="sec.output">生成结果</span></h2>
+                <div class="panel-body">
+                    <div class="tabs" id="outTabs"></div>
+                    <div class="out-params" id="outParams"></div>
+                    <div id="outList" class="out-list"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ============ 正文内容（供搜索引擎与 AI 抓取，同时也确实有用） ============ -->
+    <article class="article" id="guideZh">
+
+        <h2>什么是我的世界渐变颜色？</h2>
+        <p>
+            我的世界渐变颜色，指的是让一段文字的每个字符依次呈现不同颜色，从而形成平滑过渡的效果。
+            Minecraft <strong>Java 版从 1.16 开始支持十六进制（Hex）颜色</strong>，一个字符可以指定 1600 万种颜色中的任意一种，
+            渐变名字、渐变前缀、渐变称号才成为可能。在此之前，游戏里只有 16 种固定颜色可用。
+        </p>
+        <p>
+            实现原理并不复杂：把一句话拆成单个字符，按字符在句子中的位置计算一个 0 到 1 的进度值，
+            再用这个进度值在你设定的几个颜色之间插值，最后给每个字符各自套上一个颜色代码。
+            本工具默认使用 <strong>OKLab 色彩空间</strong>做插值——相比直接混合 RGB，它更贴近人眼对颜色的感知，
+            过渡中间不会出现发灰、发脏的区段，红到绿这类跨度大的渐变尤其明显。
+        </p>
+
+        <h2>不同版本和插件该用哪种格式</h2>
+        <p>这是最容易踩坑的地方。同一段渐变文字，写法对不上服务端就是一堆乱码。对照下表选：</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>使用场景</th>
+                        <th>应选格式</th>
+                        <th>示例写法</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paper 服务端、Adventure 系插件</td>
+                        <td>MiniMessage</td>
+                        <td><code>&lt;#FF0000&gt;红</code></td>
+                    </tr>
+                    <tr>
+                        <td>Essentials、LuckPerms、TAB 等插件配置</td>
+                        <td>&amp;#RRGGBB</td>
+                        <td><code>&amp;#FF0000红</code></td>
+                    </tr>
+                    <tr>
+                        <td>Spigot 插件源码、部分插件</td>
+                        <td>§x 十六进制</td>
+                        <td><code>§x§f§f§0§0§0§0红</code></td>
+                    </tr>
+                    <tr>
+                        <td>1.15 及以下、基岩版</td>
+                        <td>16 色近似</td>
+                        <td><code>&amp;c红</code></td>
+                    </tr>
+                    <tr>
+                        <td>命令方块、数据包</td>
+                        <td>tellraw / title JSON</td>
+                        <td><code>{"text":"红","color":"#ff0000"}</code></td>
+                    </tr>
+                    <tr>
+                        <td>物品名与 Lore（1.20.5 及以上）</td>
+                        <td>组件 custom_name</td>
+                        <td><code>[custom_name='[…]']</code></td>
+                    </tr>
+                    <tr>
+                        <td>物品名与 Lore（1.20.4 及以下）</td>
+                        <td>NBT display.Name</td>
+                        <td><code>{display:{Name:'[…]'}}</code></td>
+                    </tr>
+                    <tr>
+                        <td>server.properties 的 MOTD</td>
+                        <td>§ 转义 + 16 色</td>
+                        <td><code>§c红</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>
+            拿不准就先用 <code>&amp;#RRGGBB</code>，它的兼容面最广，绝大多数插件的配置文件都认这个写法。
+        </p>
+
+        <h2>Minecraft 原版 16 色代码对照表</h2>
+        <p>下面是 Java 版 16 种基础颜色的代码与实际色值。低版本服务器、基岩版，以及记分板等有长度限制的地方，只能用这些：</p>
+        <div class="table-wrap">
+            <table class="color-table">
+                <thead>
+                    <tr>
+                        <th>代码</th>
+                        <th>名称</th>
+                        <th>色值</th>
+                        <th>预览</th>
+                        <th>代码</th>
+                        <th>名称</th>
+                        <th>色值</th>
+                        <th>预览</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&amp;0</code></td>
+                        <td>black</td>
+                        <td>#000000</td>
+                        <td><span class="sw" style="background:#000000"></span></td>
+                        <td><code>&amp;8</code></td>
+                        <td>dark_gray</td>
+                        <td>#555555</td>
+                        <td><span class="sw" style="background:#555555"></span></td>
+                    </tr>
+                    <tr>
+                        <td><code>&amp;1</code></td>
+                        <td>dark_blue</td>
+                        <td>#0000AA</td>
+                        <td><span class="sw" style="background:#0000AA"></span></td>
+                        <td><code>&amp;9</code></td>
+                        <td>blue</td>
+                        <td>#5555FF</td>
+                        <td><span class="sw" style="background:#5555FF"></span></td>
+                    </tr>
+                    <tr>
+                        <td><code>&amp;2</code></td>
+                        <td>dark_green</td>
+                        <td>#00AA00</td>
+                        <td><span class="sw" style="background:#00AA00"></span></td>
+                        <td><code>&amp;a</code></td>
+                        <td>green</td>
+                        <td>#55FF55</td>
+                        <td><span class="sw" style="background:#55FF55"></span></td>
+                    </tr>
+                    <tr>
+                        <td><code>&amp;3</code></td>
+                        <td>dark_aqua</td>
+                        <td>#00AAAA</td>
+                        <td><span class="sw" style="background:#00AAAA"></span></td>
+                        <td><code>&amp;b</code></td>
+                        <td>aqua</td>
+                        <td>#55FFFF</td>
+                        <td><span class="sw" style="background:#55FFFF"></span></td>
+                    </tr>
+                    <tr>
+                        <td><code>&amp;4</code></td>
+                        <td>dark_red</td>
+                        <td>#AA0000</td>
+                        <td><span class="sw" style="background:#AA0000"></span></td>
+                        <td><code>&amp;c</code></td>
+                        <td>red</td>
+                        <td>#FF5555</td>
+                        <td><span class="sw" style="background:#FF5555"></span></td>
+                    </tr>
+                    <tr>
+                        <td><code>&amp;5</code></td>
+                        <td>dark_purple</td>
+                        <td>#AA00AA</td>
+                        <td><span class="sw" style="background:#AA00AA"></span></td>
+                        <td><code>&amp;d</code></td>
+                        <td>light_purple</td>
+                        <td>#FF55FF</td>
+                        <td><span class="sw" style="background:#FF55FF"></span></td>
+                    </tr>
+                    <tr>
+                        <td><code>&amp;6</code></td>
+                        <td>gold</td>
+                        <td>#FFAA00</td>
+                        <td><span class="sw" style="background:#FFAA00"></span></td>
+                        <td><code>&amp;e</code></td>
+                        <td>yellow</td>
+                        <td>#FFFF55</td>
+                        <td><span class="sw" style="background:#FFFF55"></span></td>
+                    </tr>
+                    <tr>
+                        <td><code>&amp;7</code></td>
+                        <td>gray</td>
+                        <td>#AAAAAA</td>
+                        <td><span class="sw" style="background:#AAAAAA"></span></td>
+                        <td><code>&amp;f</code></td>
+                        <td>white</td>
+                        <td>#FFFFFF</td>
+                        <td><span class="sw" style="background:#FFFFFF"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>
+            格式代码另有五个：<code>&amp;l</code> 粗体、<code>&amp;o</code> 斜体、<code>&amp;n</code> 下划线、
+            <code>&amp;m</code> 删除线、<code>&amp;k</code> 混淆（乱码动画），<code>&amp;r</code> 重置全部格式。
+            要注意的是<strong>颜色码会重置已生效的格式码</strong>，所以逐字渐变时每换一次颜色都必须重新写一遍格式码，
+            本工具生成的结果已经自动处理好了这一点。
+        </p>
+
+        <h2>常见问题</h2>
+
+        <h3>我的世界从哪个版本开始支持渐变颜色？</h3>
+        <p>
+            Java 版 <strong>1.16</strong> 开始支持十六进制颜色，写法是 <code>§x</code> 后面跟六个「§ + 十六进制位」，
+            例如 <code>§x§f§f§0§0§0§0</code> 表示纯红。1.15 及以下和基岩版都只有 16 种固定颜色，
+            只能取最接近的原版颜色来近似模拟渐变。
+        </p>
+
+        <h3>为什么复制出来的代码在服务器里显示成乱码？</h3>
+        <p>通常是三个原因之一：</p>
+        <ul>
+            <li>服务端版本低于 1.16，不认识十六进制颜色 —— 改用 16 色近似格式；</li>
+            <li>配置文件里应该写 <code>&amp;#RRGGBB</code> 而不是 <code>§x</code> —— 多数插件只解析 <code>&amp;</code> 开头的写法；</li>
+            <li>文件编码不是 UTF-8，<code>§</code> 符号被破坏 —— 把配置文件另存为 UTF-8 无 BOM 即可。</li>
+        </ul>
+
+        <h3>聊天栏 256 字符不够用怎么办？</h3>
+        <p>
+            每个字符加一次 <code>§x</code> 颜色码要占掉 14 个字符，十几个字就能撑爆上限。三个省字符的办法：
+            打开「空格不着色」；把「每 N 个字符换色」调到 2 或 3，肉眼几乎看不出差别但长度直接减半；
+            用「颜色数量化」把渐变压成十几种颜色，相邻的同色字符会自动合并成一段。
+        </p>
+
+        <h3>基岩版和手机版能用渐变颜色吗？</h3>
+        <p>
+            基岩版不支持自定义十六进制颜色，但除了 16 种基础色之外还额外提供了
+            <code>g</code>（Minecoin 金）、<code>h</code>~<code>u</code> 等材质色。
+            本工具的「基岩版 § 代码」格式会用 OKLab 色彩距离为每个字符匹配最接近的可用颜色，
+            生成结果可以直接在基岩版使用，能做出近似的渐变观感。
+        </p>
+
+        <h3>怎么给 LuckPerms 前缀、TAB 列表或称号加渐变？</h3>
+        <p>
+            切到生成结果的「前缀 / 称号 / 插件」分类，在上方填好玩家名或权限组名，
+            LuckPerms、TAB、DeluxeTags、CMI 等插件的命令和配置片段会自动填好参数，复制即可用。
+            注意前缀要显示出来，服务器通常还需要装 Vault 以及一个支持前缀的聊天插件。
+        </p>
+
+        <h3>为什么自定义的物品名是斜体的？</h3>
+        <p>
+            这是 Minecraft 的默认行为，所有自定义物品名都会带斜体。
+            本工具生成的物品名和 Lore 命令已经自动加上了 <code>"italic": false</code> 来关掉它。
+        </p>
+
+        <h3>生成的内容会上传到服务器吗？</h3>
+        <p>
+            不会。所有颜色计算、格式转换都在你的浏览器里本地完成，页面不向任何后端发送数据，
+            保存的预设和设置只存在浏览器的本地存储里。工具完全免费，也不需要注册登录。
+        </p>
+
+        <h3>渐变文字可以用在告示牌和成书上吗？</h3>
+        <p>
+            可以。「原版命令」分类里有告示牌的 <code>/setblock</code> 命令和成书的 <code>/give</code> 命令，
+            文本里的每一个换行会对应告示牌的一行（最多 4 行）。
+            需要留意告示牌单行显示宽度有限，中文大约 7 个字、英文大约 15 个字就会超出可见范围。
+        </p>
+
+    </article>
+
+    <article class="article" id="guideEn" hidden>
+
+        <h2>What are Minecraft gradient colours?</h2>
+        <p>
+            A Minecraft gradient means giving each character of a piece of text its own colour so the line
+            fades smoothly from one shade to the next. <strong>Java Edition has supported hexadecimal colours
+                since 1.16</strong>, which is what makes gradient names, prefixes and tags possible — before that
+            the game only had 16 fixed colours.
+        </p>
+        <p>
+            The method is simple: split the text into characters, work out a 0-to-1 progress value for each
+            one, interpolate between your chosen colour stops at that value, then prefix every character with
+            its own colour code. This tool interpolates in the <strong>OKLab colour space</strong> by default,
+            which tracks human perception far better than mixing raw RGB — no muddy grey band in the middle of
+            a red-to-green ramp.
+        </p>
+
+        <h2>Which format should you use?</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Where you are using it</th>
+                        <th>Format</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paper servers, Adventure-based plugins</td>
+                        <td>MiniMessage</td>
+                        <td><code>&lt;#FF0000&gt;red</code></td>
+                    </tr>
+                    <tr>
+                        <td>Essentials, LuckPerms, TAB configs</td>
+                        <td>&amp;#RRGGBB</td>
+                        <td><code>&amp;#FF0000red</code></td>
+                    </tr>
+                    <tr>
+                        <td>Spigot plugin source</td>
+                        <td>§x hex</td>
+                        <td><code>§x§f§f§0§0§0§0red</code></td>
+                    </tr>
+                    <tr>
+                        <td>1.15 and below, Bedrock</td>
+                        <td>16-colour approximation</td>
+                        <td><code>&amp;cred</code></td>
+                    </tr>
+                    <tr>
+                        <td>Command blocks, datapacks</td>
+                        <td>tellraw / title JSON</td>
+                        <td><code>{"text":"red","color":"#ff0000"}</code></td>
+                    </tr>
+                    <tr>
+                        <td>Item names, 1.20.5+</td>
+                        <td>custom_name component</td>
+                        <td><code>[custom_name='[…]']</code></td>
+                    </tr>
+                    <tr>
+                        <td>Item names, 1.20.4 and below</td>
+                        <td>display.Name NBT</td>
+                        <td><code>{display:{Name:'[…]'}}</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>When in doubt use <code>&amp;#RRGGBB</code> — it has the widest plugin support.</p>
+
+        <h2>FAQ</h2>
+
+        <h3>Which version added gradient support?</h3>
+        <p>
+            Java Edition <strong>1.16</strong> added hex colours, written as <code>§x</code> followed by six
+            “§ + hex digit” pairs. Anything older, plus Bedrock, is limited to the 16 legacy colours.
+        </p>
+
+        <h3>Why does my copied code show up as garbage in game?</h3>
+        <p>
+            Usually one of three things: the server is older than 1.16; the config wants
+            <code>&amp;#RRGGBB</code> rather than <code>§x</code>; or the file is not saved as UTF-8 so the
+            <code>§</code> character is mangled.
+        </p>
+
+        <h3>How do I stay under the 256-character chat limit?</h3>
+        <p>
+            Each <code>§x</code> colour code costs 14 characters. Turn on “leave spaces uncoloured”, set “new
+            colour every N chars” to 2 or 3, and use colour quantisation — identical neighbours are merged
+            automatically.
+        </p>
+
+        <h3>Does Bedrock support gradients?</h3>
+        <p>
+            Not with custom hex, but Bedrock adds material colours <code>g</code> through <code>u</code> on top
+            of the 16 basics. The “Bedrock § codes” output picks the nearest available colour per character
+            using OKLab distance, which gets you a convincing approximation.
+        </p>
+
+        <h3>Is anything uploaded?</h3>
+        <p>
+            No. Every calculation runs locally in your browser, presets are kept in local storage, and the tool
+            is free with no sign-up.
+        </p>
+
+    </article>
+
+    <footer class="foot">
+        <nav class="foot-links" aria-labelledby="ylgLinksTitle">
+            <h2 id="ylgLinksTitle" data-i18n="foot.ylg">YLG 服务器相关链接</h2>
+            <ul>
+                <li><a href="https://www.ylg.net.cn/" target="_blank" rel="noopener" data-i18n="foot.home">YLG服务器入口</a></li>
+                <li><a href="https://www.ylg.net.cn/whitelist.php" target="_blank" rel="noopener" data-i18n="foot.whitelist">YLG服务器白名单申请</a></li>
+                <li><a href="https://www.ylg.net.cn/rules.php" target="_blank" rel="noopener" data-i18n="foot.rules">YLG服务器规则</a></li>
+                <li><a href="https://www.ylg.net.cn/forum.php" target="_blank" rel="noopener" data-i18n="foot.forum">YLG玩家社区</a></li>
+                <li><a href="https://skin.ylg.net.cn/" target="_blank" rel="noopener" data-i18n="foot.skin">YLGF皮肤站</a></li>
+            </ul>
+        </nav>
+        <span data-i18n="foot.note">渐变计算全部在浏览器本地完成，你输入的文字不会上传。</span>
+        <span class="sep">·</span>
+        <span class="mono">§</span> = <span class="mono">§</span>
+    </footer>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <div class="modal" id="helpModal" hidden>
+        <div class="modal-box">
+            <button class="modal-close" id="helpClose">×</button>
+            <h3 data-i18n="help.title">使用说明与快捷键</h3>
+            <div id="helpBody"></div>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/color.js"></script>
+    <script src="js/easing.js"></script>
+    <script src="js/presets.js"></script>
+    <script src="js/gradient.js"></script>
+    <script src="js/formats.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/colorpicker.js"></script>
+    <script src="js/gradientbar.js"></script>
+    <script src="js/preview.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1422 @@
+<!DOCTYPE html><html lang="zh_cn" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>🍺 我的世界酿造系统完全指南 | 坞中客回忆录</title><meta name="keywords" content="MC"><meta name="author" content="lgwnf"><meta name="copyright" content="lgwnf"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#18171d"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="🍺 我的世界酿造系统完全指南"><meta name="application-name" content="🍺 我的世界酿造系统完全指南"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#18171d"><meta property="og:type" content="article"><meta property="og:title" content="🍺 我的世界酿造系统完全指南"><meta property="og:url" content="http://example.com/wz/BreweryX/index.html"><meta property="og:site_name" content="坞中客回忆录"><meta property="og:description" content="🍺 我的世界酿造系统完全指南 本文基于 BreweryX 插件（Brewery 的积极维护分支），适用于 Spigot &amp;#x2F; Paper 服务器。无论你是想在服务器里开一家酒馆，还是单纯享受酿造的过程，这份指南都会带你从零开始掌握整套酿造系统。  Brewery 插件为 Minecraft"><meta property="og:locale" content="zh_cn"><meta property="og:image" content="http://example.com/img/FM/BreweryX.webp"><meta property="article:author" content="lgwnf"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://example.com/img/FM/BreweryX.webp"><meta name="description" content="🍺 我的世界酿造系统完全指南 本文基于 BreweryX 插件（Brewery 的积极维护分支），适用于 Spigot &amp;#x2F; Paper 服务器。无论你是想在服务器里开一家酒馆，还是单纯享受酿造的过程，这份指南都会带你从零开始掌握整套酿造系统。  Brewery 插件为 Minecraft"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/wz/BreweryX/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"与数百名博主无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"你以断开连接","backTitle":"已进入服务器"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"(=^･ω･^=) 喵~","list":[{"greeting":"【子时】夜猫子时间到！本喵开始跑酷🏃♂️💨","startTime":23,"endTime":1},{"greeting":"【丑时】\"喵嗷！\" 谁在深夜开罐头？(竖耳警觉)👂🍖","startTime":2,"endTime":3},{"greeting":"【寅时】黎明前的抓沙发时间...嘶啦嘶啦~🛋️✂️","startTime":4,"endTime":5},{"greeting":"【卯时】\"喵喵喵！\" 准时叫醒服务，该放饭啦！⏰🐟","startTime":6,"endTime":7},{"greeting":"【辰时】阳光正好，摊成猫饼进行中...☀️🫓","startTime":8,"endTime":9},{"greeting":"【巳时】舔毛仪式启动！1%...2%...（认真）👅✨","startTime":10,"endTime":10},{"greeting":"【午时】\"啪嗒\"——倒地睡成猫条，勿扰模式😪🍡","startTime":11,"endTime":12},{"greeting":"【未时】暗中观察.jpg (猫猫祟祟)👀🕶️","startTime":13,"endTime":13},{"greeting":"【申时】突然疯跑！是猫薄荷还是隐形小飞虫？🦟🌀","startTime":14,"endTime":15},{"greeting":"【酉时】晚餐谈判：\"多给一条鱼，少抓一沙发\"🐠✋","startTime":16,"endTime":17},{"greeting":"【戌时】夜巡开始！检查所有纸箱是否合格📦✅","startTime":18,"endTime":19},{"greeting":"【亥时】揣手手酝酿睡意...zzZ (尾巴尖还在动)💤🐾","startTime":20,"endTime":22}]},
+  twikooEnvId: 'https://my-twikoo-czhobgjsw-xiayunhueis-projects.vercel.app/',
+  commentBarrageConfig:{"enable":true,"maxBarrage":1,"barrageTime":4000,"accessToken":"","mailMd5":""},
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":true,"limitCount":2000,"languages":{"author":"作者: lgwnf","link":"链接: ","source":"来源: 坞中客回忆录","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#d8caed","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '坞中客回忆录',
+  title: '🍺 我的世界酿造系统完全指南',
+  postAI: '',
+  pageFillDescription: '🍺 我的世界酿造系统完全指南, 一、酿造流程总览, 二、详细酿造步骤, 2.1 发酵, 2.2 蒸馏, 2.3 贮存（陈酿）, 2.4 木桶建造, 🪣 原版木桶, 🪵 小桶（9 瓶容量）, 🛢️ 大桶（27 瓶容量）, 2.5 饮品密封, 三、酿造配方大全（五星标准）, 🍺 有酒精类, 1. 啤酒, 2. 麦啤, 3. 黑啤, 4. 蜜酒, 5. 苹果蜜酒, 6. 苹果酒, 7. 红酒, 8. 伏特加, 9. 蘑菇伏特加, 10. 艾苦酒, 11. 绿色苦艾酒, 12. 朗姆酒, 13. 杜松子酒, 14. 龙舌兰, 15. 威士忌, 16. 蛋酒, 🥤 无酒精类, 17. 土豆汤, 18. 咖啡, 19. 冰咖啡, 20. 热巧克力, ✨ 特殊酒, 21. 黄金伏特加, 22. 火焰威士忌, 四、饮品效果一览, 五、醉酒与解酒机制, 5.1 醉酒等级, 5.2 醉酒表现, 5.3 解酒方法, 六、常用指令, 七、常见问题 FAQ, 八、酿造小技巧, 九、文档来源与参考我的世界酿造系统完全指南本文基于插件的积极维护分支适用于服务器无论你是想在服务器里开一家酒馆还是单纯享受酿造的过程这份指南都会带你从零开始掌握整套酿造系统插件为引入了一套全新的酿造流程涵盖发酵蒸馏贮存三大核心步骤让你可以亲手酿造啤酒威士忌伏特加红酒等数十种饮品与安装后你便可以通过发酵原料蒸馏和陈酿来开始你的酿酒之旅温馨提示本文所介绍的酿造系统仅为游戏玩法未成年人请勿饮用现实中的酒精饮品一酿造流程总览完整的酿造过程分为三个阶段阶段所需设备核心操作是否必需发酵炼药锅热源加水投料等待装瓶所有饮品必需蒸馏酿造台荧石粉放入原液等待蒸馏完成部分饮品需要贮存木桶原版或自建放入饮品等待陈酿部分饮品需要时间换算个游戏日分钟现实时间年陈酿时间二详细酿造步骤发酵发酵是酿造的第一步将原材料转化为原液操作流程搭建发酵锅将炼药锅放置在热源上方可用的热源包括火焰营火岩浆块和岩浆加水用桶将水倒入炼药锅使其装满投料手持原料对准炼药锅右键即可将原料投入等待发酵不同饮品需要不同的发酵时间发酵过程中请保持所在的区块处于加载状态否则发酵会暂停装瓶发酵完成后手持玻璃瓶对准炼药锅右键即可取出原液一口锅最多可产出瓶原液请提前准备足够的玻璃瓶时间查看技巧手持时钟对准炼药锅右键聊天栏会提示该锅已经发酵了多长时间如果发酵时间不足一分钟会显示炼药锅刚刚开始沸腾注意部分饮品对酿造过程非常敏感哪怕早或晚了分钟品质都会大打折扣因此务必利用时钟精准把控发酵时间发酵时间过长会导致饮品品质下降甚至变成废品重要如果配方要求蒸馏或贮存请务必在发酵完成后及时取出不要将原液留在锅中过久蒸馏蒸馏用于提升部分饮品的酒精浓度和品质操作流程搭建蒸馏台放置一个酿造台在上方原料槽放入个荧石粉作为蒸馏催化剂放入原液将发酵好的原液放入酿造台下方瓶子槽位中等待蒸馏酿造台会自动开始蒸馏进度条每完成一次视为进行了次蒸馏关键要点荧石粉不会被消耗放置一次即可永久使用无需补充不需要烈焰粉作为燃料不同的饮品需要不同次数的蒸馏次到次不等请参照配方自行斟酌蒸馏次数过多不会损坏饮品当蒸馏次数已经足够时继续放入酿造台也不会触发额外进度蒸馏务必进行到底不要中途取出否则可能得到低品质的产物贮存陈酿贮存可以让饮品获得更丰富的风味和更高的品质基本规则将饮品放入木桶后自动开始陈酿每经过个日分钟饮品就会贮存年不是所有饮品都需要贮存有些饮品蒸馏完即可饮用桶的木材种类会影响饮品品质部分饮品需要特定木材的桶才能酿造成功原版木桶始终按橡木桶计算如果同时需要蒸馏和贮存请先蒸馏再贮存木桶建造原版木桶直接使用原版的木桶即可贮存但容量有限仅能存放瓶小桶瓶容量材料个木楼梯个告示牌所有木材需为同一种类建造方法用个木楼梯搭建成的桶形结构在右下方放置告示牌第一行写上建造成功后聊天栏会提示木桶已创建右键即可打开使用大桶瓶容量材料个木楼梯个木板个木栅栏个告示牌所有木材需为同一种类建造方法在方格的每个角放上木栅栏作为桶脚用个木楼梯和个木板搭建桶身在正面下方放一个木栅栏作为水龙头在正面上方放置告示牌第一行写上建造成功后聊天栏会提示木桶已创建材料提示有的酒需要特定木材的桶如龙舌兰需要白桦木桶只需用对应木材的材料搭建即可告示牌上的文字必须写在第一行才能被识别饮品密封为了方便商店出售饮品你需要使用密封桌对饮品进行密封处理密封桌合成在工作台的合成格中上方放个瓶子下方放个木板密封效果使饮品的属性均等化方便商店统一定价售卖密封后的饮品不能继续贮存或进一步加工密封后的饮品不再显示详细信息酒精度品质等密封后饮品的星级会被方括号框起来标识三酿造配方大全五星标准以下所有配方均以五星品质为标准实际酿造中品质会因操作精度而有所浮动有酒精类啤酒项目内容原料个小麦发酵时间分钟蒸馏不需要贮存年桶材料任意酒精度麦啤项目内容原料个小麦发酵时间分钟蒸馏不需要贮存年桶材料白桦木酒精度黑啤项目内容原料个小麦发酵时间分钟蒸馏次贮存不需要酒精度蜜酒项目内容原料个甘蔗发酵时间分钟蒸馏不需要贮存年桶材料橡木酒精度苹果蜜酒项目内容原料个甘蔗个苹果发酵时间分钟蒸馏不需要贮存年桶材料橡木酒精度苹果酒项目内容原料个苹果发酵时间分钟蒸馏不需要贮存年桶材料任意酒精度红酒项目内容原料个甜浆果发酵时间分钟蒸馏不需要贮存年需要耐心桶材料任意酒精度伏特加项目内容原料个土豆发酵时间分钟蒸馏次次数影响酒精度贮存不需要酒精度蘑菇伏特加项目内容原料个土豆个红蘑菇个棕蘑菇发酵时间分钟蒸馏次贮存不需要酒精度艾苦酒项目内容原料个草发酵时间分钟蒸馏次贮存不需要酒精度绿色苦艾酒项目内容原料个毒马铃薯个草发酵时间分钟蒸馏次贮存不需要酒精度最烈饮品朗姆酒项目内容原料个甘蔗发酵时间分钟蒸馏次贮存年桶材料橡木酒精度杜松子酒项目内容原料个小麦个苹果个兰花发酵时间分钟蒸馏次贮存不需要酒精度龙舌兰项目内容原料个仙人掌发酵时间分钟蒸馏次贮存年桶材料白桦木酒精度威士忌项目内容原料个小麦发酵时间分钟蒸馏次贮存年桶材料云杉木酒精度蛋酒项目内容原料个鸡蛋个糖桶牛奶发酵时间分钟蒸馏不需要贮存年桶材料任意酒精度无酒精类土豆汤项目内容原料个土豆个草发酵时间分钟蒸馏不需要贮存不需要酒精度咖啡项目内容原料个可可豆桶牛奶发酵时间分钟蒸馏不需要贮存不需要酒精度可解酒冰咖啡项目内容原料个曲奇个雪球桶牛奶发酵时间分钟蒸馏不需要贮存不需要酒精度解酒效果更强热巧克力项目内容原料个曲奇发酵时间分钟蒸馏不需要贮存不需要酒精度特殊酒黄金伏特加项目内容原料个土豆个金粒发酵时间分钟蒸馏次贮存不需要酒精度火焰威士忌项目内容原料个小麦个烈焰粉发酵时间分钟蒸馏次贮存年桶材料云杉木酒精度四饮品效果一览饮品效果持续时间浓咖啡迅疾生命恢复土豆汤瞬间治疗热巧克力急迫苹果蜜酒水下呼吸冰咖啡迅疾生命恢复朗姆酒抗火烈酒醉酒失明虚弱中毒反胃饥饿视醉酒程度而定饮酒后人物会不受控制地四处移动聊天内容也会受到影响喝太多酒可能会呕吐低品质的酿造饮品更容易引发宿醉等负面效果五醉酒与解酒机制醉酒等级插件为每位玩家维护一个醉酒值范围从清醒到完全醉酒饮用含酒精饮品会累积醉酒值不同饮品的酒精度不同对醉酒值的影响也不同醉酒表现随着醉酒值的升高玩家会出现以下表现行走步伐不稳不受控制地四处移动聊天发出的文字会被随机替换影响正常交流视觉效果视野扭曲失明负面效果虚弱中毒反胃饥饿极端情况醉酒值过高时会呕吐解酒方法方法效果饮用负酒精度饮品咖啡冰咖啡等可降低醉酒值喝牛奶略微降低醉酒值吃面包降低一定程度的醉酒值等待自然恢复醉酒值会随时间自然衰减解酒计算示例喝一瓶绿色苦艾酒酒精度后需要喝瓶咖啡每瓶才能完全解酒小贴士可以使用查看自己的醉酒值使用玩家名查看其他玩家的醉酒值六常用指令指令功能查看插件帮助查看自己的醉酒信息玩家查看指定玩家的醉酒信息配方创建一个饮品管理员重载插件配置管理员移除酿造物品管理员打开密封桌界面如果服务器安装了且命令存在冲突可以改用或七常见问题发酵完成后忘记取出会怎样饮品在炼药锅中发酵时间过长会降低品质甚至变成废品建议使用时钟实时监控发酵时间蒸馏次数过多会损坏饮品吗不会当蒸馏次数已经足够时继续放入酿造台不会触发额外进度可以放心蒸馏和贮存的顺序是什么先蒸馏再贮存如果顺序颠倒饮品的品质会受到严重影响不同木材的桶有什么区别不同饮品需要不同木材的桶才能达到最佳品质例如威士忌需要云杉木桶龙舌兰需要白桦木桶使用错误的木材可能导致品质降低甚至酿制失败密封后的饮品还能继续陈酿吗不能密封后的饮品不能继续贮存或进一步加工也不能显示详细信息密封是为了方便商店售卖而设计的为什么我的酒桶无法创建请检查以下条件告示牌上的是否写在第一行注意大小写所有建材是否使用了同一种木材结构形状是否正确小桶大桶大桶是否正确放置了水龙头木栅栏八酿造小技巧批量酿造同时放置多个炼药锅利用等待时间差轮换操作大幅提高效率精准计时始终随身携带时钟发酵时间对品质影响极大桶的规划提前根据配方准备好对应木材的桶避免酿好后无处存放解酒储备在酒馆中常备咖啡或冰咖啡方便顾客解酒安全饮酒低品质的饮品更容易导致宿醉和负面效果优先饮用高星级饮品实验精神支持自定义配方鼓励玩家尝试不同的原料组合九文档来源与参考本文基于插件分支编写是一个积极维护的插件分支支持和覆盖至版本核心酿造机制来源于插件该插件通过发酵蒸馏和桶陈酿为引入了完整的酿酒系统主要参考来源官方页面与文档官方教程服务器中文文档教程语雀酿酒文档仓库最后更新年月祝你酿造愉快干杯',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-10-03 22:13:45',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><span id="fps"></span><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/schedule.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/imgloaded.css?1" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/card-background.css?1"><link rel="stylesheet" href="/css/home.css?1"><link rel="stylesheet" href="/css/todolist.css"><link rel="stylesheet" href="/css/jmsy.css"><link rel="stylesheet" href="/css/qh.css"><link rel="stylesheet" href="/css/gd.css"><link rel="stylesheet" href="/css/daohan.css"><link rel="stylesheet" href="/css/sb.css"><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/avatar1.webp"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mcwzk.pages.dev" title="github-博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="github-博客"/><span class="back-menu-item-text">github-博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.mchlt.cn" title="坞中客"><img class="back-menu-item-icon" src="/img/favicon.svg" alt="坞中客"/><span class="back-menu-item-text">坞中客</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">坞中客回忆录</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/charts/"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon faa-tada" style="font-size: 0.9em;"></i><span> 统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/qq/"><i class="fa-solid fa-comment faa-tada"></i><span> 群聊</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=5098975797&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 玩家列表</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> MC工具</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/mccolor/index.html"><span> 渐变生成</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/MapArt%20Generator/index.html"><span> MC 地图画生成器</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button"><a class="site-page social-icon search" href="javascript:;" onclick="toggleWinbox()" title="切换背景-换一种感觉。"><i class="fa-solid fa-image">     </i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://s21.ax1x.com/2025/03/07/pEt301O.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://s21.ax1x.com/2025/03/07/pEt301O.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://s21.ax1x.com/2025/03/07/pEt3w9K.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://s21.ax1x.com/2025/03/07/pEt3w9K.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/MC/" style="font-size: 1.05rem;">MC<sup>9</sup></a><a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 1.05rem;">音乐<sup>1</sup></a><a href="/tags/%E9%9F%B3%E7%AC%A6%E7%9B%92/" style="font-size: 1.05rem;">音符盒<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/10/"><span class="card-archive-list-date">十月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/08/"><span class="card-archive-list-date">八月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/05/"><span class="card-archive-list-date">五月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">一月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6/" itemprop="url">软件</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/MC/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>MC</span></a></span></div></div><h1 class="post-title" itemprop="name headline">🍺 我的世界酿造系统完全指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-10-03T13:37:00.000Z" title="发表于 2026-10-03 21:37:00">2026-10-03</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-10-03T14:13:45.916Z" title="更新于 2026-10-03 22:13:45">2026-10-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="🍺 我的世界酿造系统完全指南"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为广东"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>广东</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/FM/BreweryX.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/wz/BreweryX/"><header><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6/" itemprop="url">软件</a><a href="/tags/MC/" tabindex="-1" itemprop="url">MC</a><h1 id="CrawlerTitle" itemprop="name headline">🍺 我的世界酿造系统完全指南</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">lgwnf</span><time itemprop="dateCreated datePublished" datetime="2026-10-03T13:37:00.000Z" title="发表于 2026-10-03 21:37:00">2026-10-03</time><time itemprop="dateCreated datePublished" datetime="2026-10-03T14:13:45.916Z" title="更新于 2026-10-03 22:13:45">2026-10-03</time></header><h1 id="🍺-我的世界酿造系统完全指南"><a href="#🍺-我的世界酿造系统完全指南" class="headerlink" title="🍺 我的世界酿造系统完全指南"></a>🍺 我的世界酿造系统完全指南</h1><blockquote>
+<p>本文基于 BreweryX 插件（Brewery 的积极维护分支），适用于 Spigot &#x2F; Paper 服务器。无论你是想在服务器里开一家酒馆，还是单纯享受酿造的过程，这份指南都会带你从零开始掌握整套酿造系统。</p>
+</blockquote>
+<p>Brewery 插件为 Minecraft 引入了一套全新的酿造流程，涵盖 <strong>发酵、蒸馏、贮存</strong> 三大核心步骤，让你可以亲手酿造啤酒、威士忌、伏特加、红酒等数十种饮品。与安装 BreweryX 后，你便可以通过发酵原料、蒸馏和陈酿来开始你的酿酒之旅。</p>
+<blockquote>
+<p>⚠️ <strong>温馨提示</strong>：本文所介绍的酿造系统仅为游戏玩法，未成年人请勿饮用现实中的酒精饮品。</p>
+</blockquote>
+<h2 id="一、酿造流程总览"><a href="#一、酿造流程总览" class="headerlink" title="一、酿造流程总览"></a>一、酿造流程总览</h2><p>完整的酿造过程分为三个阶段：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>所需设备</th>
+<th>核心操作</th>
+<th>是否必需</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>① 发酵</td>
+<td>炼药锅 + 热源</td>
+<td>加水 → 投料 → 等待 → 装瓶</td>
+<td>✅ 所有饮品必需</td>
+</tr>
+<tr>
+<td>② 蒸馏</td>
+<td>酿造台 + 荧石粉</td>
+<td>放入原液 → 等待蒸馏完成</td>
+<td>❌ 部分饮品需要</td>
+</tr>
+<tr>
+<td>③ 贮存</td>
+<td>木桶（原版或自建）</td>
+<td>放入饮品 → 等待陈酿</td>
+<td>❌ 部分饮品需要</td>
+</tr>
+</tbody></table>
+<p><strong>时间换算</strong>：1 个游戏日 &#x3D; 20 分钟现实时间 &#x3D; 1 年陈酿时间。</p>
+<h2 id="二、详细酿造步骤"><a href="#二、详细酿造步骤" class="headerlink" title="二、详细酿造步骤"></a>二、详细酿造步骤</h2><h3 id="2-1-发酵"><a href="#2-1-发酵" class="headerlink" title="2.1 发酵"></a>2.1 发酵</h3><p>发酵是酿造的第一步，将原材料转化为原液。</p>
+<p><strong>操作流程：</strong></p>
+<ol>
+<li><strong>搭建发酵锅</strong>：将炼药锅放置在热源上方。可用的热源包括火焰、营火、岩浆块和岩浆。</li>
+<li><strong>加水</strong>：用桶将水倒入炼药锅，使其装满。</li>
+<li><strong>投料</strong>：手持原料，对准炼药锅<strong>右键</strong>，即可将原料投入。</li>
+<li><strong>等待发酵</strong>：不同饮品需要不同的发酵时间。发酵过程中请保持所在的区块处于加载状态，否则发酵会暂停。</li>
+<li><strong>装瓶</strong>：发酵完成后，手持玻璃瓶对准炼药锅<strong>右键</strong>，即可取出原液。一口锅最多可产出 <strong>3 瓶</strong>原液，请提前准备足够的玻璃瓶。</li>
+</ol>
+<p><strong>🕐 时间查看技巧：</strong></p>
+<p>手持<strong>时钟</strong>对准炼药锅右键，聊天栏会提示该锅已经发酵了多长时间。如果发酵时间不足一分钟，会显示“炼药锅刚刚开始沸腾”。</p>
+<blockquote>
+<p>💡 <strong>注意</strong>：部分饮品对酿造过程非常敏感，哪怕早或晚了 1 分钟，品质都会大打折扣，因此务必利用时钟精准把控发酵时间。发酵时间过长会导致饮品品质下降，甚至变成废品。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>重要</strong>：如果配方要求蒸馏或贮存，请务必在发酵完成后<strong>及时取出</strong>，不要将原液留在锅中过久。</p>
+</blockquote>
+<h3 id="2-2-蒸馏"><a href="#2-2-蒸馏" class="headerlink" title="2.2 蒸馏"></a>2.2 蒸馏</h3><p>蒸馏用于提升部分饮品的酒精浓度和品质。</p>
+<p><strong>操作流程：</strong></p>
+<ol>
+<li><strong>搭建蒸馏台</strong>：放置一个酿造台，在<strong>上方原料槽</strong>放入 <strong>1 个荧石粉</strong>作为蒸馏催化剂。</li>
+<li><strong>放入原液</strong>：将发酵好的原液放入酿造台下方瓶子槽位中。</li>
+<li><strong>等待蒸馏</strong>：酿造台会自动开始蒸馏，进度条每完成一次，视为进行了 1 次蒸馏。</li>
+</ol>
+<p><strong>关键要点：</strong></p>
+<ul>
+<li>荧石粉<strong>不会被消耗</strong>，放置一次即可永久使用，无需补充。</li>
+<li><strong>不需要</strong>烈焰粉作为燃料。</li>
+<li>不同的饮品需要不同次数的蒸馏（2 次到 6 次不等），请参照配方自行斟酌。</li>
+<li>蒸馏次数过多不会损坏饮品——当蒸馏次数已经足够时，继续放入酿造台也不会触发额外进度。</li>
+<li><strong>蒸馏务必进行到底</strong>，不要中途取出，否则可能得到低品质的产物。</li>
+</ul>
+<h3 id="2-3-贮存（陈酿）"><a href="#2-3-贮存（陈酿）" class="headerlink" title="2.3 贮存（陈酿）"></a>2.3 贮存（陈酿）</h3><p>贮存可以让饮品获得更丰富的风味和更高的品质。</p>
+<p><strong>基本规则：</strong></p>
+<ul>
+<li>将饮品放入木桶后，自动开始陈酿。</li>
+<li><strong>每经过 1 个 MC 日（20 分钟），饮品就会贮存 1 年</strong>。</li>
+<li>不是所有饮品都需要贮存——有些饮品蒸馏完即可饮用。</li>
+<li><strong>桶的木材种类会影响饮品品质</strong>，部分饮品需要特定木材的桶才能酿造成功。</li>
+<li>原版木桶始终按<strong>橡木桶</strong>计算。</li>
+</ul>
+<p><strong>如果同时需要蒸馏和贮存</strong>：请<strong>先蒸馏，再贮存</strong>。</p>
+<h3 id="2-4-木桶建造"><a href="#2-4-木桶建造" class="headerlink" title="2.4 木桶建造"></a>2.4 木桶建造</h3><h4 id="🪣-原版木桶"><a href="#🪣-原版木桶" class="headerlink" title="🪣 原版木桶"></a>🪣 原版木桶</h4><p>直接使用 Minecraft 原版的木桶即可贮存，但容量有限，<strong>仅能存放 6 瓶</strong>。</p>
+<h4 id="🪵-小桶（9-瓶容量）"><a href="#🪵-小桶（9-瓶容量）" class="headerlink" title="🪵 小桶（9 瓶容量）"></a>🪵 小桶（9 瓶容量）</h4><ul>
+<li><strong>材料</strong>：8 个木楼梯 + 1 个告示牌（所有木材需为同一种类）</li>
+<li><strong>建造方法</strong>：用 8 个木楼梯搭建成 2×2×2 的桶形结构，在右下方放置告示牌，第一行写上 <code>Barrel</code>。</li>
+<li>建造成功后聊天栏会提示“木桶已创建”，右键即可打开使用。</li>
+</ul>
+<h4 id="🛢️-大桶（27-瓶容量）"><a href="#🛢️-大桶（27-瓶容量）" class="headerlink" title="🛢️ 大桶（27 瓶容量）"></a>🛢️ 大桶（27 瓶容量）</h4><ul>
+<li><strong>材料</strong>：16 个木楼梯 + 20 个木板 + 4 个木栅栏 + 1 个告示牌（所有木材需为同一种类）</li>
+<li><strong>建造方法</strong>：<ol>
+<li>在 3×4 方格的每个角放上木栅栏作为“桶脚”。</li>
+<li>用 16 个木楼梯和 20 个木板搭建桶身。</li>
+<li>在正面下方放一个木栅栏作为水龙头。</li>
+<li>在正面上方放置告示牌，第一行写上 <code>Barrel</code>。</li>
+</ol>
+</li>
+<li>建造成功后聊天栏会提示“木桶已创建”。</li>
+</ul>
+<blockquote>
+<p>💡 <strong>材料提示</strong>：有的酒需要特定木材的桶（如龙舌兰需要白桦木桶），只需用对应木材的材料搭建即可。告示牌上的文字必须写在<strong>第一行</strong>才能被识别。</p>
+</blockquote>
+<h3 id="2-5-饮品密封"><a href="#2-5-饮品密封" class="headerlink" title="2.5 饮品密封"></a>2.5 饮品密封</h3><p>为了方便商店出售饮品，你需要使用<strong>密封桌</strong>对饮品进行密封处理。</p>
+<p><strong>密封桌合成</strong>：在工作台的合成格中，上方放 2 个瓶子，下方放 4 个木板。</p>
+<p><strong>密封效果</strong>：</p>
+<ul>
+<li>使饮品的属性均等化，方便商店统一定价售卖。</li>
+<li>密封后的饮品<strong>不能</strong>继续贮存或进一步加工。</li>
+<li>密封后的饮品<strong>不再显示</strong>详细信息（酒精度、品质等）。</li>
+<li>密封后，饮品的星级会被 <code>[方括号]</code> 框起来标识。</li>
+</ul>
+<h2 id="三、酿造配方大全（五星标准）"><a href="#三、酿造配方大全（五星标准）" class="headerlink" title="三、酿造配方大全（五星标准）"></a>三、酿造配方大全（五星标准）</h2><p>以下所有配方均以<strong>五星品质</strong>为标准。实际酿造中，品质会因操作精度而有所浮动。</p>
+<h3 id="🍺-有酒精类"><a href="#🍺-有酒精类" class="headerlink" title="🍺 有酒精类"></a>🍺 有酒精类</h3><h4 id="1-啤酒"><a href="#1-啤酒" class="headerlink" title="1. 啤酒"></a>1. 啤酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>6 个小麦</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>8 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>3 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>6</td>
+</tr>
+</tbody></table>
+<h4 id="2-麦啤"><a href="#2-麦啤" class="headerlink" title="2. 麦啤"></a>2. 麦啤</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>3 个小麦</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>8 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>2 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>白桦木</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h4 id="3-黑啤"><a href="#3-黑啤" class="headerlink" title="3. 黑啤"></a>3. 黑啤</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>6 个小麦</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>8 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>2 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<h4 id="4-蜜酒"><a href="#4-蜜酒" class="headerlink" title="4. 蜜酒"></a>4. 蜜酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>6 个甘蔗</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>3 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>4 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>橡木</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<h4 id="5-苹果蜜酒"><a href="#5-苹果蜜酒" class="headerlink" title="5. 苹果蜜酒"></a>5. 苹果蜜酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>6 个甘蔗 + 2 个苹果</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>4 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>4 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>橡木</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>11</td>
+</tr>
+</tbody></table>
+<h4 id="6-苹果酒"><a href="#6-苹果酒" class="headerlink" title="6. 苹果酒"></a>6. 苹果酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>13 个苹果</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>7 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>3 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>14</td>
+</tr>
+</tbody></table>
+<h4 id="7-红酒"><a href="#7-红酒" class="headerlink" title="7. 红酒"></a>7. 红酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>5 个甜浆果</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>5 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>20 年（需要耐心！）</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<h4 id="8-伏特加"><a href="#8-伏特加" class="headerlink" title="8. 伏特加"></a>8. 伏特加</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>10 个土豆</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>15 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>2~3 次（次数影响酒精度）</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<h4 id="9-蘑菇伏特加"><a href="#9-蘑菇伏特加" class="headerlink" title="9. 蘑菇伏特加"></a>9. 蘑菇伏特加</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>10 个土豆 + 3 个红蘑菇 + 3 个棕蘑菇</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>18 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>5 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>18</td>
+</tr>
+</tbody></table>
+<h4 id="10-艾苦酒"><a href="#10-艾苦酒" class="headerlink" title="10. 艾苦酒"></a>10. 艾苦酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>15 个草</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>3 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>5~6 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>42</td>
+</tr>
+</tbody></table>
+<h4 id="11-绿色苦艾酒"><a href="#11-绿色苦艾酒" class="headerlink" title="11. 绿色苦艾酒"></a>11. 绿色苦艾酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>2 个毒马铃薯 + 17 个草</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>5 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>6 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>46（最烈饮品！）</td>
+</tr>
+</tbody></table>
+<h4 id="12-朗姆酒"><a href="#12-朗姆酒" class="headerlink" title="12. 朗姆酒"></a>12. 朗姆酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>18 个甘蔗</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>6 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>2 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>13.5~14.5 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>橡木</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>30</td>
+</tr>
+</tbody></table>
+<h4 id="13-杜松子酒"><a href="#13-杜松子酒" class="headerlink" title="13. 杜松子酒"></a>13. 杜松子酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>9 个小麦 + 1 个苹果 + 6 个兰花</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>6 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>2 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<h4 id="14-龙舌兰"><a href="#14-龙舌兰" class="headerlink" title="14. 龙舌兰"></a>14. 龙舌兰</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>8 个仙人掌</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>15 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>2 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>11.5~12.5 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>白桦木</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<h4 id="15-威士忌"><a href="#15-威士忌" class="headerlink" title="15. 威士忌"></a>15. 威士忌</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>10 个小麦</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>10 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>2 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>18 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>云杉木</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>26</td>
+</tr>
+</tbody></table>
+<h4 id="16-蛋酒"><a href="#16-蛋酒" class="headerlink" title="16. 蛋酒"></a>16. 蛋酒</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>5 个鸡蛋 + 2 个糖 + 1 桶牛奶</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>2 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>3 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<h3 id="🥤-无酒精类"><a href="#🥤-无酒精类" class="headerlink" title="🥤 无酒精类"></a>🥤 无酒精类</h3><h4 id="17-土豆汤"><a href="#17-土豆汤" class="headerlink" title="17. 土豆汤"></a>17. 土豆汤</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>5 个土豆 + 3 个草</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>3 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h4 id="18-咖啡"><a href="#18-咖啡" class="headerlink" title="18. 咖啡"></a>18. 咖啡</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>11 个可可豆 + 2 桶牛奶</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>2 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>-6（可解酒）</td>
+</tr>
+</tbody></table>
+<h4 id="19-冰咖啡"><a href="#19-冰咖啡" class="headerlink" title="19. 冰咖啡"></a>19. 冰咖啡</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>8 个曲奇 + 4 个雪球 + 1 桶牛奶</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>1 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>-8（解酒效果更强）</td>
+</tr>
+</tbody></table>
+<h4 id="20-热巧克力"><a href="#20-热巧克力" class="headerlink" title="20. 热巧克力"></a>20. 热巧克力</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>3 个曲奇</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>2 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h3 id="✨-特殊酒"><a href="#✨-特殊酒" class="headerlink" title="✨ 特殊酒"></a>✨ 特殊酒</h3><h4 id="21-黄金伏特加"><a href="#21-黄金伏特加" class="headerlink" title="21. 黄金伏特加"></a>21. 黄金伏特加</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>10 个土豆 + 2 个金粒</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>18 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>3 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>❌ 不需要</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<h4 id="22-火焰威士忌"><a href="#22-火焰威士忌" class="headerlink" title="22. 火焰威士忌"></a>22. 火焰威士忌</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原料</td>
+<td>10 个小麦 + 2 个烈焰粉</td>
+</tr>
+<tr>
+<td>发酵时间</td>
+<td>12 分钟</td>
+</tr>
+<tr>
+<td>蒸馏</td>
+<td>3 次</td>
+</tr>
+<tr>
+<td>贮存</td>
+<td>18 年</td>
+</tr>
+<tr>
+<td>桶材料</td>
+<td>云杉木</td>
+</tr>
+<tr>
+<td>酒精度</td>
+<td>28</td>
+</tr>
+</tbody></table>
+<h2 id="四、饮品效果一览"><a href="#四、饮品效果一览" class="headerlink" title="四、饮品效果一览"></a>四、饮品效果一览</h2><table>
+<thead>
+<tr>
+<th>饮品</th>
+<th>效果</th>
+<th>持续时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>浓咖啡</td>
+<td>迅疾 I + 生命恢复</td>
+<td>0:35 + 0:03</td>
+</tr>
+<tr>
+<td>土豆汤</td>
+<td>瞬间治疗</td>
+<td>0:01</td>
+</tr>
+<tr>
+<td>热巧克力</td>
+<td>急迫 III</td>
+<td>0:40</td>
+</tr>
+<tr>
+<td>苹果蜜酒</td>
+<td>水下呼吸 II</td>
+<td>2:30</td>
+</tr>
+<tr>
+<td>冰咖啡</td>
+<td>迅疾 III + 生命恢复 III</td>
+<td>0:05 + 0:30</td>
+</tr>
+<tr>
+<td>朗姆酒</td>
+<td>抗火</td>
+<td>1:40</td>
+</tr>
+<tr>
+<td>烈酒&#x2F;醉酒</td>
+<td>失明、虚弱、中毒、反胃、饥饿</td>
+<td>视醉酒程度而定</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 饮酒后人物会不受控制地四处移动，聊天内容也会受到影响，喝太多酒可能会呕吐。低品质的酿造饮品更容易引发宿醉等负面效果。</p>
+</blockquote>
+<h2 id="五、醉酒与解酒机制"><a href="#五、醉酒与解酒机制" class="headerlink" title="五、醉酒与解酒机制"></a>五、醉酒与解酒机制</h2><h3 id="5-1-醉酒等级"><a href="#5-1-醉酒等级" class="headerlink" title="5.1 醉酒等级"></a>5.1 醉酒等级</h3><p>Brewery 插件为每位玩家维护一个醉酒值，范围从 0（清醒）到 100（完全醉酒）。饮用含酒精饮品会累积醉酒值，不同饮品的酒精度不同，对醉酒值的影响也不同。</p>
+<h3 id="5-2-醉酒表现"><a href="#5-2-醉酒表现" class="headerlink" title="5.2 醉酒表现"></a>5.2 醉酒表现</h3><p>随着醉酒值的升高，玩家会出现以下表现：</p>
+<ul>
+<li><strong>行走</strong>：步伐不稳，不受控制地四处移动</li>
+<li><strong>聊天</strong>：发出的文字会被随机替换，影响正常交流</li>
+<li><strong>视觉效果</strong>：视野扭曲、失明</li>
+<li><strong>负面效果</strong>：虚弱、中毒、反胃、饥饿</li>
+<li><strong>极端情况</strong>：醉酒值过高时会呕吐</li>
+</ul>
+<h3 id="5-3-解酒方法"><a href="#5-3-解酒方法" class="headerlink" title="5.3 解酒方法"></a>5.3 解酒方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>饮用负酒精度饮品</td>
+<td>咖啡（-6）、冰咖啡（-8）等可降低醉酒值</td>
+</tr>
+<tr>
+<td>喝牛奶</td>
+<td>略微降低醉酒值</td>
+</tr>
+<tr>
+<td>吃面包</td>
+<td>降低一定程度的醉酒值</td>
+</tr>
+<tr>
+<td>等待自然恢复</td>
+<td>醉酒值会随时间自然衰减</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>📌 <strong>解酒计算示例</strong>：喝一瓶绿色苦艾酒（酒精度 46）后，需要喝 <strong>8 瓶咖啡</strong>（每瓶 -6）才能完全解酒。</p>
+</blockquote>
+<blockquote>
+<p>💡 <strong>小贴士</strong>：可以使用 <code>/brew info</code> 查看自己的醉酒值，使用 <code>/brew info &lt;玩家名&gt;</code> 查看其他玩家的醉酒值。</p>
+</blockquote>
+<h2 id="六、常用指令"><a href="#六、常用指令" class="headerlink" title="六、常用指令"></a>六、常用指令</h2><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/brew help</code></td>
+<td>查看插件帮助</td>
+</tr>
+<tr>
+<td><code>/brew info</code></td>
+<td>查看自己的醉酒信息</td>
+</tr>
+<tr>
+<td><code>/brew info &lt;玩家&gt;</code></td>
+<td>查看指定玩家的醉酒信息</td>
+</tr>
+<tr>
+<td><code>/brew create &lt;配方&gt;</code></td>
+<td>创建一个饮品（管理员）</td>
+</tr>
+<tr>
+<td><code>/brew reload</code></td>
+<td>重载插件配置（管理员）</td>
+</tr>
+<tr>
+<td><code>/brew remove</code></td>
+<td>移除酿造物品（管理员）</td>
+</tr>
+<tr>
+<td><code>/brew seal</code></td>
+<td>打开密封桌界面</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 如果服务器安装了 WorldEdit 且 <code>/br</code> 命令存在冲突，可以改用 <code>/brew</code> 或 <code>/brewery</code>。</p>
+</blockquote>
+<h2 id="七、常见问题-FAQ"><a href="#七、常见问题-FAQ" class="headerlink" title="七、常见问题 FAQ"></a>七、常见问题 FAQ</h2><p><strong>Q1：发酵完成后忘记取出会怎样？</strong></p>
+<p>饮品在炼药锅中发酵时间过长会降低品质，甚至变成废品。建议使用时钟实时监控发酵时间。</p>
+<p><strong>Q2：蒸馏次数过多会损坏饮品吗？</strong></p>
+<p>不会。当蒸馏次数已经足够时，继续放入酿造台不会触发额外进度，可以放心。</p>
+<p><strong>Q3：蒸馏和贮存的顺序是什么？</strong></p>
+<p>先蒸馏，再贮存。如果顺序颠倒，饮品的品质会受到严重影响。</p>
+<p><strong>Q4：不同木材的桶有什么区别？</strong></p>
+<p>不同饮品需要不同木材的桶才能达到最佳品质。例如威士忌需要云杉木桶，龙舌兰需要白桦木桶。使用错误的木材可能导致品质降低甚至酿制失败。</p>
+<p><strong>Q5：密封后的饮品还能继续陈酿吗？</strong></p>
+<p>不能。密封后的饮品不能继续贮存或进一步加工，也不能显示详细信息。密封是为了方便商店售卖而设计的。</p>
+<p><strong>Q6：为什么我的酒桶无法创建？</strong></p>
+<p>请检查以下条件：</p>
+<ul>
+<li>告示牌上的 <code>Barrel</code> 是否写在<strong>第一行</strong>（注意大小写）</li>
+<li>所有建材是否使用了<strong>同一种木材</strong></li>
+<li>结构形状是否正确（小桶 2×2×2，大桶 3×4）</li>
+<li>大桶是否正确放置了水龙头（木栅栏）</li>
+</ul>
+<h2 id="八、酿造小技巧"><a href="#八、酿造小技巧" class="headerlink" title="八、酿造小技巧"></a>八、酿造小技巧</h2><ol>
+<li><strong>批量酿造</strong>：同时放置多个炼药锅，利用等待时间差轮换操作，大幅提高效率。</li>
+<li><strong>精准计时</strong>：始终随身携带时钟，发酵时间对品质影响极大。</li>
+<li><strong>桶的规划</strong>：提前根据配方准备好对应木材的桶，避免酿好后无处存放。</li>
+<li><strong>解酒储备</strong>：在酒馆中常备咖啡或冰咖啡，方便顾客解酒。</li>
+<li><strong>安全饮酒</strong>：低品质的饮品更容易导致宿醉和负面效果，优先饮用高星级饮品。</li>
+<li><strong>实验精神</strong>：Brewery 支持自定义配方，鼓励玩家尝试不同的原料组合。</li>
+</ol>
+<h2 id="九、文档来源与参考"><a href="#九、文档来源与参考" class="headerlink" title="九、文档来源与参考"></a>九、文档来源与参考</h2><p>本文基于 BreweryX 插件（Brewery 分支）编写。BreweryX 是一个积极维护的插件分支，支持 Spigot、Paper 和 Folia，覆盖 Minecraft 1.8 至 1.21 版本。核心酿造机制来源于 Brewery 插件，该插件通过发酵、蒸馏和桶陈酿为 Minecraft 引入了完整的酿酒系统。</p>
+<p>主要参考来源：</p>
+<ul>
+<li>BreweryX 官方 SpigotMC 页面与文档</li>
+<li>Brewery Guild 官方 Wiki 教程</li>
+<li>Averno 服务器 BreweryX 中文文档</li>
+<li>Ultravanilla Wiki 教程</li>
+<li>语雀酿酒文档</li>
+<li>Patbox’s Brewery GitHub 仓库</li>
+</ul>
+<p><em>最后更新：2026 年 10 月</em></p>
+<p><em>祝你酿造愉快，干杯！</em> 🍻</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="/img/avatar1.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="/img/avatar1.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">lgwnf</div><div class="post-copyright__author_desc">记录最后的坞中客</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/wz/BreweryX/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/wz/BreweryX/')">🍺 我的世界酿造系统完全指南</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://s21.ax1x.com/2025/03/07/pEt301O.jpg" target="_blank"><img class="post-qr-code-img" src="https://s21.ax1x.com/2025/03/07/pEt301O.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://s21.ax1x.com/2025/03/07/pEt3w9K.jpg" target="_blank"><img class="post-qr-code-img" src="https://s21.ax1x.com/2025/03/07/pEt3w9K.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/wz/BreweryX/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=🍺 我的世界酿造系统完全指南&amp;url=http://example.com/wz/BreweryX/&amp;pic=/img/FM/BreweryX.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">坞中客回忆录</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__category-list"><a class="post-meta__box__categoryes" href="/categories/%E8%BD%AF%E4%BB%B6/"><span class="categoryes-punctuation"> <i class="anzhiyufont anzhiyu-icon-inbox"></i></span>软件<span class="categoryesPageCount">5</span></a></div><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/MC/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>MC<span class="tagsPageCount">9</span></a></div></div><div class="post_share"><div class="social-share" data-image="/img/FM/BreweryX.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/wz/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B01.21.11/"><img class="prev-cover" src="/img/FM/BBGX.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">游戏版本更新1.21.11 个人mod整合包</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/wz/mc/" title="Minecraft坞中客-指令列表"><img class="cover" src="/img/FM/WZK.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-12-04</div><div class="title">Minecraft坞中客-指令列表</div></div></a></div><div><a href="/wz/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B01.21.11/" title="游戏版本更新1.21.11 个人mod整合包"><img class="cover" src="/img/FM/BBGX.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-08-16</div><div class="title">游戏版本更新1.21.11 个人mod整合包</div></div></a></div><div><a href="/wz/tp/" title="坞中客-图片"><img class="cover" src="/img/wz/zz.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-05-10</div><div class="title">坞中客-图片</div></div></a></div><div><a href="/wz/gG/" title="坞中客-交易所公告"><img class="cover" src="/img/FM/JYS.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-05-10</div><div class="title">坞中客-交易所公告</div></div></a></div><div><a href="/wz/gy/" title="坞中客-服务器公约"><img class="cover" src="/img/FM/gy.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-01-30</div><div class="title">坞中客-服务器公约</div></div></a></div><div><a href="/wz/mcyxb/" title="Minecraft坞中客服务器如何赚取游戏币"><img class="cover" src="/img/FM/SM.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-12-06</div><div class="title">Minecraft坞中客服务器如何赚取游戏币</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src="/img/avatar1.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src="/img/favicon.svg" alt="status"/></div></div><div class="author-info__description"></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">lgwnf</h1><div class="author-info__desc">记录最后的坞中客</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://www.mchlt.cn" target="_blank" title="坞中客"><i class="fa-brands fa-codepen faa-tada"></i></a><a class="social-icon faa-parent animated-hover" href="https://mcwzk.pages.dev" target="_blank" title="本站"><i class="fa-solid fa-cat faa-tada"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(/img/wz/qqzm.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(/img/wz/qqfm.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%8D%BA-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E9%85%BF%E9%80%A0%E7%B3%BB%E7%BB%9F%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">🍺 我的世界酿造系统完全指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%85%BF%E9%80%A0%E6%B5%81%E7%A8%8B%E6%80%BB%E8%A7%88"><span class="toc-number">1.1.</span> <span class="toc-text">一、酿造流程总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%AF%A6%E7%BB%86%E9%85%BF%E9%80%A0%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.2.</span> <span class="toc-text">二、详细酿造步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%8F%91%E9%85%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 发酵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%92%B8%E9%A6%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 蒸馏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%B4%AE%E5%AD%98%EF%BC%88%E9%99%88%E9%85%BF%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 贮存（陈酿）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%9C%A8%E6%A1%B6%E5%BB%BA%E9%80%A0"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 木桶建造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%AA%A3-%E5%8E%9F%E7%89%88%E6%9C%A8%E6%A1%B6"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">🪣 原版木桶</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%AA%B5-%E5%B0%8F%E6%A1%B6%EF%BC%889-%E7%93%B6%E5%AE%B9%E9%87%8F%EF%BC%89"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">🪵 小桶（9 瓶容量）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%9B%A2%EF%B8%8F-%E5%A4%A7%E6%A1%B6%EF%BC%8827-%E7%93%B6%E5%AE%B9%E9%87%8F%EF%BC%89"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">🛢️ 大桶（27 瓶容量）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E9%A5%AE%E5%93%81%E5%AF%86%E5%B0%81"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 饮品密封</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%85%BF%E9%80%A0%E9%85%8D%E6%96%B9%E5%A4%A7%E5%85%A8%EF%BC%88%E4%BA%94%E6%98%9F%E6%A0%87%E5%87%86%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">三、酿造配方大全（五星标准）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8D%BA-%E6%9C%89%E9%85%92%E7%B2%BE%E7%B1%BB"><span class="toc-number">1.3.1.</span> <span class="toc-text">🍺 有酒精类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%95%A4%E9%85%92"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1. 啤酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%BA%A6%E5%95%A4"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">2. 麦啤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%BB%91%E5%95%A4"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">3. 黑啤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%9C%9C%E9%85%92"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">4. 蜜酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E8%8B%B9%E6%9E%9C%E8%9C%9C%E9%85%92"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">5. 苹果蜜酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%8B%B9%E6%9E%9C%E9%85%92"><span class="toc-number">1.3.1.6.</span> <span class="toc-text">6. 苹果酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%BA%A2%E9%85%92"><span class="toc-number">1.3.1.7.</span> <span class="toc-text">7. 红酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E4%BC%8F%E7%89%B9%E5%8A%A0"><span class="toc-number">1.3.1.8.</span> <span class="toc-text">8. 伏特加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E8%98%91%E8%8F%87%E4%BC%8F%E7%89%B9%E5%8A%A0"><span class="toc-number">1.3.1.9.</span> <span class="toc-text">9. 蘑菇伏特加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E8%89%BE%E8%8B%A6%E9%85%92"><span class="toc-number">1.3.1.10.</span> <span class="toc-text">10. 艾苦酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E7%BB%BF%E8%89%B2%E8%8B%A6%E8%89%BE%E9%85%92"><span class="toc-number">1.3.1.11.</span> <span class="toc-text">11. 绿色苦艾酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-%E6%9C%97%E5%A7%86%E9%85%92"><span class="toc-number">1.3.1.12.</span> <span class="toc-text">12. 朗姆酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-%E6%9D%9C%E6%9D%BE%E5%AD%90%E9%85%92"><span class="toc-number">1.3.1.13.</span> <span class="toc-text">13. 杜松子酒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-%E9%BE%99%E8%88%8C%E5%85%B0"><span class="toc-number">1.3.1.14.</span> <span class="toc-text">14. 龙舌兰</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-%E5%A8%81%E5%A3%AB%E5%BF%8C"><span class="toc-number">1.3.1.15.</span> <span class="toc-text">15. 威士忌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-%E8%9B%8B%E9%85%92"><span class="toc-number">1.3.1.16.</span> <span class="toc-text">16. 蛋酒</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A5%A4-%E6%97%A0%E9%85%92%E7%B2%BE%E7%B1%BB"><span class="toc-number">1.3.2.</span> <span class="toc-text">🥤 无酒精类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#17-%E5%9C%9F%E8%B1%86%E6%B1%A4"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">17. 土豆汤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#18-%E5%92%96%E5%95%A1"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">18. 咖啡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#19-%E5%86%B0%E5%92%96%E5%95%A1"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">19. 冰咖啡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#20-%E7%83%AD%E5%B7%A7%E5%85%8B%E5%8A%9B"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">20. 热巧克力</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%A8-%E7%89%B9%E6%AE%8A%E9%85%92"><span class="toc-number">1.3.3.</span> <span class="toc-text">✨ 特殊酒</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21-%E9%BB%84%E9%87%91%E4%BC%8F%E7%89%B9%E5%8A%A0"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">21. 黄金伏特加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#22-%E7%81%AB%E7%84%B0%E5%A8%81%E5%A3%AB%E5%BF%8C"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">22. 火焰威士忌</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%A5%AE%E5%93%81%E6%95%88%E6%9E%9C%E4%B8%80%E8%A7%88"><span class="toc-number">1.4.</span> <span class="toc-text">四、饮品效果一览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%86%89%E9%85%92%E4%B8%8E%E8%A7%A3%E9%85%92%E6%9C%BA%E5%88%B6"><span class="toc-number">1.5.</span> <span class="toc-text">五、醉酒与解酒机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E9%86%89%E9%85%92%E7%AD%89%E7%BA%A7"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 醉酒等级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E9%86%89%E9%85%92%E8%A1%A8%E7%8E%B0"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 醉酒表现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E8%A7%A3%E9%85%92%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3 解酒方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.6.</span> <span class="toc-text">六、常用指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-FAQ"><span class="toc-number">1.7.</span> <span class="toc-text">七、常见问题 FAQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E9%85%BF%E9%80%A0%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">1.8.</span> <span class="toc-text">八、酿造小技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%96%87%E6%A1%A3%E6%9D%A5%E6%BA%90%E4%B8%8E%E5%8F%82%E8%80%83"><span class="toc-number">1.9.</span> <span class="toc-text">九、文档来源与参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/wz/BreweryX/" title="🍺 我的世界酿造系统完全指南"><img src="/img/FM/BreweryX.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="🍺 我的世界酿造系统完全指南"/></a><div class="content"><a class="title" href="/wz/BreweryX/" title="🍺 我的世界酿造系统完全指南">🍺 我的世界酿造系统完全指南</a><time datetime="2026-10-03T13:37:00.000Z" title="发表于 2026-10-03 21:37:00">2026-10-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/wz/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B01.21.11/" title="游戏版本更新1.21.11 个人mod整合包"><img src="/img/FM/BBGX.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="游戏版本更新1.21.11 个人mod整合包"/></a><div class="content"><a class="title" href="/wz/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B01.21.11/" title="游戏版本更新1.21.11 个人mod整合包">游戏版本更新1.21.11 个人mod整合包</a><time datetime="2026-08-16T12:55:05.000Z" title="发表于 2026-08-16 20:55:05">2026-08-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/wz/tp/" title="坞中客-图片"><img src="/img/wz/zz.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="坞中客-图片"/></a><div class="content"><a class="title" href="/wz/tp/" title="坞中客-图片">坞中客-图片</a><time datetime="2026-05-10T12:55:05.000Z" title="发表于 2026-05-10 20:55:05">2026-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/wz/gG/" title="坞中客-交易所公告"><img src="/img/FM/JYS.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="坞中客-交易所公告"/></a><div class="content"><a class="title" href="/wz/gG/" title="坞中客-交易所公告">坞中客-交易所公告</a><time datetime="2026-05-10T12:55:05.000Z" title="发表于 2026-05-10 20:55:05">2026-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/wz/gy/" title="坞中客-服务器公约"><img src="/img/FM/gy.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="坞中客-服务器公约"/></a><div class="content"><a class="title" href="/wz/gy/" title="坞中客-服务器公约">坞中客-服务器公约</a><time datetime="2026-01-29T18:11:05.000Z" title="发表于 2026-01-30 02:11:05">2026-01-30</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://qm.qq.com/q/4f1anYoDUA" title="qq"><i class="anzhiyufont anzhiyu-icon-qq"></i></a><a class="deal_link" href="/3110885374@qq.com" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src="/img/avatar1.webp" size="50px"/><a class="deal_link" target="_blank" rel="noopener" href="https://mcwzk.pages.dev" title="本站"><i class="fa-solid fa-cat"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.mchlt.cn" title="坞中客"><i class="fa-brands fa-codepen"></i></a></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2026 By <a class="footer-bar-link" href="/" title="lgwnf" target="_blank">lgwnf</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">4</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mcwzk.pages.dev" title="github-博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="github-博客"/><span class="back-menu-item-text">github-博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.mchlt.cn" title="坞中客"><img class="back-menu-item-icon" src="/img/favicon.svg" alt="坞中客"/><span class="back-menu-item-text">坞中客</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/charts/"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon faa-tada" style="font-size: 0.9em;"></i><span> 统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/qq/"><i class="fa-solid fa-comment faa-tada"></i><span> 群聊</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=5098975797&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/menu/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 玩家列表</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> MC工具</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/mccolor/index.html"><span> 渐变生成</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/MapArt%20Generator/index.html"><span> MC 地图画生成器</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/MC/" style="font-size: 0.88rem;">MC<sup>9</sup></a><a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.88rem;">音乐<sup>1</sup></a><a href="/tags/%E9%9F%B3%E7%AC%A6%E7%9B%92/" style="font-size: 0.88rem;">音符盒<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes">           </i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><a id="switch-commentBarrage" href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕"><i class="anzhiyufont anzhiyu-icon-danmu"></i></a></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button type="button" title="切换背景" onclick="toggleWinbox()"><i class="fa-solid fa-image">     </i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button><button id="go-down" type="button" title="直达底部" onclick="anzhiyu.scrollToDest(document.body.scrollHeight, 500)"><i class="anzhiyufont anzhiyu-icon-arrow-down"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="13484571884" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.6"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/my/m/music/playlist?id=13484571884&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 lgwnf 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+
+  const initWaline = (Fn) => {
+    const waline = Fn(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://mcwzk.cc.cd/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+      imageUploader: true,
+    }, null))
+
+    const destroyWaline = () => {
+      waline.destroy()
+    }
+
+    anzhiyu.addGlobalFn('pjax', destroyWaline, 'destroyWaline')
+  }
+
+  const loadWaline = async () => {
+    if (initFn) initWaline(initFn)
+    else {
+      await getCSS('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline.css')
+      if (true) await getCSS('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline-meta.css')
+      const { init } = await import('https://cdn.cbd.int/@waline/client@3.1.3/dist/waline.js')
+      initFn = init || Waline.init
+      initWaline(initFn)
+      window.walineFn = initFn
+    }
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = async () => {
+    try {
+      const res = await fetch('https://mcwzk.cc.cd/api/comment?type=recent&count=6', { method: 'GET' })
+      const result = await res.json()
+      const walineArray = result.data.map(e => {
+        return {
+          'content': changeContent(e.comment),
+          'avatar': e.avatar,
+          'nick': e.nick,
+          'url': e.url + '#' + e.objectId,
+          'date': e.time || e.insertedAt
+        }
+      })
+      saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
+      generateHtml(walineArray)
+    } catch (err) {
+      console.error(err)
+      const $dom = document.querySelector('#card-newest-comments .aside-list')
+      $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+    }
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('waline-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="[&quot;https://at.alicdn.com/t/c/font_4887093_o6he5yujr2.js&quot;,&quot;https://at.alicdn.com/t/c/font_4890159_34bweub77t9.js&quot;]"></script><script async src="/js/fps1.js"></script><script src="/js/schedule.js"></script><script src="/js/chineselunar.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.9.0-rc.1/echarts.min.js"></script><script async data-pjax src="/js/imgloaded.js?1"></script><script src="/css/footer-animal.js" defer></script><script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script src="/js/fx.js"></script><script src="https://cdn.jsdelivr.net/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script src="/js/qh.js"></script><script src="/js/spmh.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
